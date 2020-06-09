@@ -28,6 +28,7 @@ public class Employee {
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
 
+    @JsonIgnoreProperties("employeeList")
     @ManyToMany
     @JoinTable(
             name = "employees_projects",
@@ -79,6 +80,14 @@ public class Employee {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public List<Project> getProjectList() {
+        return projectList;
+    }
+
+    public void setProjectList(List<Project> projectList) {
+        this.projectList = projectList;
     }
 
     public String getLastName() {

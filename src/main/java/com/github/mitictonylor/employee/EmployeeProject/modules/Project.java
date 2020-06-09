@@ -1,5 +1,7 @@
 package com.github.mitictonylor.employee.EmployeeProject.modules;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ public class Project {
     @Column
     private int duration;
 
+@JsonIgnoreProperties("projectList")
     @ManyToMany
     @JoinTable(
             name = "employees_projects",
